@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="user_view_tree" model="ir.ui.view">
+            <field name="name">List User</field>
+            <field name="model">subject.information</field>
+            <field name="arch" type="xml">
+                <tree string="Danh sách người dùng">
+                    <field name="user_name" optional="show"/>
+                    <field name="birth" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="user_view_form" model="ir.ui.view">
+            <field name="name">User Form</field>
+            <field name="model">subject.information</field>
+            <field name="arch" type="xml">
+                <tree string="Người dùng">
+                    <field name="user_name"/>
+                    <field name="birth"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_subject" model="ir.actions.act_window">
+            <field name="name">User Information</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">subject.information</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('user_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('user_view_form')})]"/>
+        </record>
+
+        <menuitem
+                action="action_subject"
+                id="subject_information_menu"
+                name="User"
+                parent="product_infomation.view_menu_product"
+                groups="base.group_user"
+                sequence="4"/>
+    </data>
+</odoo>

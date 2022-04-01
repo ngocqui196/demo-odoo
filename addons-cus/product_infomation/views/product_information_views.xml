@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_view_form" model="ir.ui.view">
+            <field name="name">Product Information</field>
+            <field name="model">pro.product.information</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="amount"/>
+                            <field name="import_price"/>
+                            <field name="made_in"/>
+                            <field name="tax"/>
+                            <field name="price"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="subject_list" widget="many2many_checkboxes.name" string="Danh sách người mua"
+                                   help="Đây là danh sáng những người dùng đã mua">
+
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_view_tree" model="ir.ui.view">
+            <field name="name">List Product</field>
+            <field name="model">pro.product.information</field>
+            <field name="arch" type="xml">
+                <tree string="Product" default_order="create_date desc">
+                    <field name="name" optional="show"/>
+                    <field name="description" optional="show"/>
+                    <field name="amount" optional="show"/>
+                    <field name="price" optional="show"/>
+                    <field name="made_in" optional="show"/>
+                    <field name="tax" optional="show"/>
+                    <field name="import_price"/>
+                    <field name="company_id" optional="show"/>
+                    <field name="address" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_product" model="ir.actions.act_window">
+            <field name="name">Product Information</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pro.product.information</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('product_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('product_view_form')})]"/>
+        </record>
+        <menuitem
+                id="view_menu_product"
+                name="Product Information"
+                parent="company_infomation.crm_menu_root_1"
+                groups="base.group_user"
+                sequence="2"/>
+
+        <menuitem
+                action="action_product"
+                id="view_submenu_product"
+                name="Product"
+                parent="product_infomation.view_menu_product"
+                sequence="3"/>
+    </data>
+
+
+</odoo>
