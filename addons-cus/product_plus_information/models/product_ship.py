@@ -1,5 +1,4 @@
 from odoo import api, fields, models, tools
-from odoo.exceptions import UserError, ValidationError
 
 
 class ProductShip(models.Model):

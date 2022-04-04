@@ -1,7 +1,7 @@
 from odoo import fields, models
 
 
-class Product(models.Model):
+class Company(models.Model):
     _name = "company.information"
     _description = "Company"
 

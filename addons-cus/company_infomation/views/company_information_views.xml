@@ -12,6 +12,28 @@
                             <field name="president"/>
                             <field name="address"/>
                         </group>
+<!--                        <group>-->
+<!--                            <field name="products_list">-->
+<!--                                <tree>-->
+<!--                                    <field name="name"/>-->
+<!--                                    <field name="description"/>-->
+<!--                                    <field name="amount"/>-->
+<!--                                    <field name="import_price"/>-->
+<!--                                    <field name="made_in"/>-->
+<!--                                    <field name="tax"/>-->
+<!--                                    <field name="price"/>-->
+<!--                                </tree>-->
+<!--                                <form>-->
+<!--                                    <field name="name"/>-->
+<!--                                    <field name="description"/>-->
+<!--                                    <field name="amount"/>-->
+<!--                                    <field name="import_price"/>-->
+<!--                                    <field name="made_in"/>-->
+<!--                                    <field name="tax"/>-->
+<!--                                    <field name="price"/>-->
+<!--                                </form>-->
+<!--                            </field>-->
+<!--                        </group>-->
                     </sheet>
                 </form>
             </field>
